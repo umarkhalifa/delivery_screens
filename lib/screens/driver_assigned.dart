@@ -75,7 +75,7 @@ class DriverAssigned extends StatelessWidget {
                                               'Driver Name',
                                               style: TextStyle(
                                                 fontSize: 16,
-                                                color: Color(0xff3101828),
+                                                color: Color(0xff101828),
                                               ),
                                             ),
                                             Text(

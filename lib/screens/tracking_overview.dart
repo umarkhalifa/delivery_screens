@@ -25,7 +25,7 @@ class TrackingOverView extends StatelessWidget {
         title: const Text(
           "Shipments",
           style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500,
-          color: const Color(0xff101828)
+          color: Color(0xff101828)
           ),
         ),
       ),
@@ -101,7 +101,7 @@ class TrackingOverView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> TrackingOverViewDetail()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const TrackingOverViewDetail()));
                       },
                       child: Column(
                         children: [

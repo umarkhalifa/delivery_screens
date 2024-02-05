@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kelvins_screen/screens/tracking_overview.dart';
+import 'package:kelvins_screen/screens/account/my_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: GoogleFonts.dmSansTextTheme(),
-        iconTheme: IconThemeData(color: Color(0XFF080B30)),
-        appBarTheme: AppBarTheme(
+        iconTheme: const IconThemeData(color: Color(0XFF080B30)),
+        appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(color: Color(0XFF080B30))
         ),
         // This is the theme of your application.
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: false,
       ),
-      home: const TrackingOverView(),
+      home: const MyCardScreen(),
     );
   }
 }
