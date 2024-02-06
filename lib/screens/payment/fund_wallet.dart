@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:kelvins_screen/screens/payment/select_payment.dart';
@@ -112,46 +111,36 @@ class FundWalletScreen extends StatelessWidget {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 50,),
-              Expanded(child: Material(
-                elevation: 0,
-                color: const Color(0xffFAFAFA),
-                borderRadius: BorderRadius.circular(25),
-                child: Column(
-                  children: [
-                   const Expanded(child: NumberKeyboard()),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SelectPaymentScreen(),
-                          ),
-                        );
-                      },
-                      child: Material(
-                        elevation: 0,
-                        color: const Color(0xffF26520),
-                        borderRadius: BorderRadius.circular(40),
-                        child: SizedBox(
-                          height: 57,
-                          width: MediaQuery.sizeOf(context).width,
-                          child: const Center(
-                            child: Text(
-                              "Continue",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
+              const Spacer(),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SelectPaymentScreen(),
+                    ),
+                  );
+                },
+                child: Material(
+                  elevation: 0,
+                  color: const Color(0xffF26520),
+                  borderRadius: BorderRadius.circular(40),
+                  child: SizedBox(
+                    height: 57,
+                    width: MediaQuery.sizeOf(context).width,
+                    child: const Center(
+                      child: Text(
+                        "Continue",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
                         ),
                       ),
-                    )
-
-                  ],
+                    ),
+                  ),
                 ),
-              ))
+              )
+
             ],
           ),
         ),
@@ -160,55 +149,6 @@ class FundWalletScreen extends StatelessWidget {
   }
 }
 
-class NumberKeyboard extends StatelessWidget {
-  final String? extra;
-  const NumberKeyboard({Key? key, this.extra,})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8.0),
-      child: GridView.builder(
-        itemCount: 12,
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          childAspectRatio: 1.7
-        ),
-        itemBuilder: (BuildContext context, int index) {
-          if (index < 9) {
-            return  Center(
-              child: Text(
-                  '${index + 1}',
-                  style: const TextStyle(fontSize: 24.0),
-              ),
-            );
-          } else if (index == 9) {
-            return  extra!= null ?
-             Center(
-                child: Text(
-                    extra!,
-                    style: TextStyle(fontSize: 24.0))):
-            const SizedBox();
-          } else if(index == 10){
-            return const Center(
-              child: Text(
-                  '0',
-                  style: TextStyle(fontSize: 24.0)),
-            );
-          }else {
-            return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: SvgPicture.asset('assets/svgs/Frame.svg',height: 20,),
-            );
-          }
-        },
-      ),
-    );
-  }
-}
 
 List<String> amounts = [
   '₦1,000','₦2,000','₦5,000','₦10,000','₦12,000','₦15,000','₦20,000','₦25,0000'

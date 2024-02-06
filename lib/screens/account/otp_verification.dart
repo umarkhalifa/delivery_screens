@@ -174,7 +174,12 @@ class SuccessDialog extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () async {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> PaymentScreen()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PaymentScreen(),
+                  ),
+                );
               },
               child: Material(
                 elevation: 0,

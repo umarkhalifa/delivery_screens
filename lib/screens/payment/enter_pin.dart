@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:kelvins_screen/screens/payment/fund_wallet.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 class EnterYourPinScreen extends StatelessWidget {
@@ -61,7 +60,7 @@ class EnterYourPinScreen extends StatelessWidget {
                   onChanged: (value){},
 
                 ),
-                const Spacer(),
+                const SizedBox(height: 100,),
                 /// Replace with button widget
                 GestureDetector(
                   onTap: () async{
@@ -90,13 +89,6 @@ class EnterYourPinScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Spacer(),
-                Material(
-                  elevation: 0,
-                  color: const Color(0xffFAFAFA),
-                  borderRadius: BorderRadius.circular(25),
-                  child: const NumberKeyboard(extra: "*",),
-                )
 
               ],
             ),
