@@ -67,7 +67,7 @@ class EnterYourPinScreen extends StatelessWidget {
                     await showDialog(
                     context: context,
                     builder: (context) {
-                      return const SuccessDialog();
+                      return const ErrorDialog();
                     });
                   },
                   child: Material(
@@ -184,9 +184,108 @@ class SuccessDialog extends StatelessWidget {
                 ),
               ),
             ),
+
           ],
         ),
       ),
     );
   }
 }
+
+class ErrorDialog extends StatelessWidget {
+  const ErrorDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 35.0, horizontal: 20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(
+              height: 181,
+              child: Center(
+                child: CircleAvatar(
+                  radius: 70,
+                  backgroundColor: Colors.red,
+                  child: Icon(
+                    Iconsax.card,
+                    color: Colors.white,
+                    size: 50,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              "Top Up Unsuccessful",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Color(0xff101828),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const SizedBox(
+              height: 75,
+            ),
+            GestureDetector(
+              onTap: () async {
+                Navigator.pop(context);
+              },
+              child: Material(
+                elevation: 0,
+                color: const Color(0xffF26520),
+                borderRadius: BorderRadius.circular(40),
+                child: SizedBox(
+                  height: 57,
+                  width: MediaQuery.sizeOf(context).width,
+                  child: const Center(
+                    child: Text(
+                      "Try Again",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20,),
+            GestureDetector(
+              onTap: () async {
+                Navigator.pop(context);
+              },
+              child: Material(
+                elevation: 0,
+                color: const Color(0xffFBEAE1),
+                borderRadius: BorderRadius.circular(40),
+                child: SizedBox(
+                  height: 57,
+                  width: MediaQuery.sizeOf(context).width,
+                  child: const Center(
+                    child: Text(
+                      "Add New Card",
+                      style: TextStyle(
+                        color: const Color(0xffF26520),
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
