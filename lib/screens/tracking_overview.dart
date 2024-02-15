@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:kelvins_screen/screens/tracking_overview_detail.dart';
 
-class TrackingOverView extends StatelessWidget {
+class TrackingOverView extends StatefulWidget {
   const TrackingOverView({super.key});
 
+  @override
+  State<TrackingOverView> createState() => _TrackingOverViewState();
+}
+
+class _TrackingOverViewState extends State<TrackingOverView> with TickerProviderStateMixin {
+  TabController? tabController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController = TabController(length: 4, vsync: this);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,35 +78,27 @@ class TrackingOverView extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: filters.map((filter) {
-                    return Chip(
-                      label: Text(
-                        filter,
-                        style: TextStyle(
-                            color: filter == 'All'
-                                ? Colors.white
-                                : const Color(0xff101828),
-                            fontSize: 12),
-                      ),
-                      backgroundColor: filter == 'All'
-                          ? const Color(0xffF26520)
-                          : Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        side: const BorderSide(
-                          color: Color(0xffEAECF0),
-                        ),
-                      ),
-                      side: BorderSide(
-                        color: filter == 'All'
-                            ? Colors.transparent
-                            : const Color(0xffEAECF0),
-                      ),
-                    );
-                  }).toList(),
+                SizedBox(
+                  height: 50,
+                  child: TabBar(
+                      indicatorPadding: const EdgeInsets.symmetric(horizontal: 2,vertical: 9),
+                      isScrollable: true,
+                      unselectedLabelColor: const  Color(0xff101828),
+                      labelColor: Colors.white,
+                      labelStyle: GoogleFonts.dmSans(),
+                      indicator: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color(0xffFC7233)),
+                      controller: tabController,
+                      onTap: (value) {
+                      },
+                      tabs: filters
+                          .map((filter) => Tab(
+                        text: filter,
+                      ))
+                          .toList()),
                 ),
+
                 const SizedBox(
                   height: 30,
                 ),

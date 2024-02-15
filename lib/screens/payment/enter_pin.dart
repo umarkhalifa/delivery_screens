@@ -274,7 +274,7 @@ class ErrorDialog extends StatelessWidget {
                     child: Text(
                       "Add New Card",
                       style: TextStyle(
-                        color: const Color(0xffF26520),
+                        color: Color(0xffF26520),
                         fontSize: 16,
                       ),
                     ),
